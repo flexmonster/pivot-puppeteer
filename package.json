@@ -1,0 +1,14 @@
+{
+  "name": "pivot-puppeteer",
+  "version": "1.0.0",
+  "description": "This repository demonstrates the usage of Flexmonster Pivot Table & Charts in headless Chromium by capacities of Puppeteer.",
+  "main": "pivot.js",
+  "scripts": {
+    "start": "node pivot.js"
+  },
+  "author": "Flexmonster",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^5.2.1"
+  }
+}

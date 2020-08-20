@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.flexmonster.com/flexmonster.js"></script>
+</head>
+
+<body>
+
+    <div id="pivotContainer"></div>
+
+    <script type="text/javascript">
+
+        const ready = new Event('ready');
+        const reportcomplete = new Event('reportcomplete');
+        const exportcomplete = new Event('exportcomplete');
+
+        let pivot = new Flexmonster({
+            container: "#pivotContainer",
+            componentFolder: "https://cdn.flexmonster.com/",
+            ready: () => {
+                window.dispatchEvent(ready);
+            },
+            reportcomplete: () => {
+                window.dispatchEvent(reportcomplete);
+            },
+            exportcomplete: () => {
+                console.log("exportcomplete");
+                window.dispatchEvent(exportcomplete);
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
