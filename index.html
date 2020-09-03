@@ -12,22 +12,20 @@
 
     <script type="text/javascript">
 
-        const ready = new Event('ready');
-        const reportcomplete = new Event('reportcomplete');
-        const exportcomplete = new Event('exportcomplete');
-
         let pivot = new Flexmonster({
             container: "#pivotContainer",
             componentFolder: "https://cdn.flexmonster.com/",
             ready: () => {
-                window.dispatchEvent(ready);
+                console.log("ready");
+                window.dispatchEvent(new Event('ready'));
             },
             reportcomplete: () => {
-                window.dispatchEvent(reportcomplete);
+                console.log("reportcomplete");
+                window.dispatchEvent(new Event('reportcomplete'));
             },
             exportcomplete: () => {
                 console.log("exportcomplete");
-                window.dispatchEvent(exportcomplete);
+                window.dispatchEvent(new Event('exportcomplete'));
             }
         });
 

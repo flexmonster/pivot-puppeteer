@@ -16,36 +16,28 @@ const directoryPath = "./storage/"; /* Path to save files */
 
 (async () => {
 
-  (function run() {
+  eventEmitter.once('reportcomplete', () => {
 
     /*
       All changes should be made within this function.
-
+ 
       Available methods:
       - setReport (https://www.flexmonster.com/api/setreport/)
       - exportTo (https://www.flexmonster.com/api/exportto/)
-
+ 
       The exportTo method takes two parameters: type and params.
       Callback function will be ignored.
       Possible destination types:
       - plain (the file will be saved by the path defined as a value of the "directoryPath" variable)
       - server (the file will be exported to the server)
-
+ 
       Available events (use "eventEmitter" to manage events):
       - ready (https://www.flexmonster.com/api/ready/)
       - reportcomplete (https://www.flexmonster.com/api/reportcomplete/)
       - exportcomplete (https://www.flexmonster.com/api/exportcomplete/)
-
+ 
       Additional methods and events can be added using the template.
     */
-
-    eventEmitter.once('ready', () => { /* Setting report when the component is ready */
-      setReport({
-        dataSource: {
-          filename: 'https://cdn.flexmonster.com/data/data.json'
-        }
-      });
-    });
 
     eventEmitter.once('reportcomplete', () => { /* Exporting when report is ready */
       exportTo("csv");
@@ -61,12 +53,16 @@ const directoryPath = "./storage/"; /* Path to save files */
       if (exportCount == 5) browser.close(); /* Closing browser when all exports are completed */
     });
 
-  })();
+    setReport({
+      dataSource: {
+        filename: 'https://cdn.flexmonster.com/data/data.json'
+      }
+    });
+
+  });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-
-  await page.setContent(fs.readFileSync('index.html', 'utf8'));
 
   function setReport(report) {
     page.evaluate(report => {
@@ -120,13 +116,13 @@ const directoryPath = "./storage/"; /* Path to save files */
     eventEmitter.emit('ready')
   });
   await page.exposeFunction('onReportComplete', () => {
-    setTimeout(() => {
-      eventEmitter.emit('reportcomplete')
-    }, 1000);
+    eventEmitter.emit('reportcomplete')
   });
   await page.exposeFunction('onExportComplete', () => {
     eventEmitter.emit('exportcomplete')
   });
+
+  await page.setContent(fs.readFileSync('index.html', 'utf8'));
 
   await page.evaluate(() => {
     window.addEventListener('ready', () => window.onReady());
