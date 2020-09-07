@@ -38,4 +38,4 @@ npm start
 When the export is complete, find the saved files in the `storage/` folder.
 
 ## Usage
-For more details on usage, see the [our documentation](https://www.flexmonster.com/doc/export-and-print/#!export-without-browser).
+For more details on usage, see [our documentation](https://www.flexmonster.com/doc/export-and-print/#!export-without-browser).
