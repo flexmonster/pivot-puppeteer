@@ -1,4 +1,4 @@
-# Use Flexmonster Pivot Table & Charts with Puppeteer Headless Chrome Node.js API
+# Exporting from Flexmonster Pivot Table & Charts on the server without using a browser
 [![Flexmonster Pivot Table & Charts](https://cdn.flexmonster.com/landing.png)](https://flexmonster.com)
 Website: www.flexmonster.com
 
@@ -6,7 +6,7 @@ Website: www.flexmonster.com
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository holds the sample of how to use Flexmonster Pivot Table & Charts in headless Chromium by capacities of [Puppeteer](https://pptr.dev/):
+This repository holds the source code for a sample of how to export from Flexmonster Pivot without using a browser. We achieve this by means of [Puppeteer](https://pptr.dev/):
 
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
