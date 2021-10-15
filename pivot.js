@@ -110,7 +110,7 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
         result.type = "png";
         break;
     }
-    fs.writeFile(`${directoryPath}${result.filename}.${result.type}`, result.data, 'utf8', error => {
+    fs.writeFile(`${directoryPath}${result.filename}.${result.type}`, result.data, result.type == "pdf" ? "ascii" : "utf-8", error => {
       if (error) console.log(error);
     });
   });
