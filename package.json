@@ -9,6 +9,7 @@
   "author": "Flexmonster",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "^5.2.1"
+    "flexmonster": "^2.9.19",
+    "puppeteer": "^13.4.1"
   }
 }

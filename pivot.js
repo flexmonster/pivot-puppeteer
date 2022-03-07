@@ -9,9 +9,11 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
 
 ((directoryPath) => {
   fs.mkdir(path.resolve(path.resolve(),
-    directoryPath.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, '')), { recursive: true }, error => {
-      if (error) console.error(error);
-    });
+    directoryPath.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, '')), {
+    recursive: true
+  }, error => {
+    if (error) console.error(error);
+  });
 })(directoryPath); /* Creating a storage folder for exported files (if such a folder doesn't exist yet) */
 
 (async () => {
@@ -39,7 +41,8 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
       Additional methods and events can be added using the template.
     */
 
-    eventEmitter.once('reportcomplete', () => { /* Exporting when the report is ready */
+    eventEmitter.once('reportcomplete', () => {
+      /* Exporting when the report is ready */
       exportTo("csv");
       exportTo("html");
       exportTo("pdf");
@@ -79,8 +82,9 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
       if (params) {
         if (params.destinationType != "plain" && params.destinationType != "server")
           params.destinationType = "plain";
-      }
-      else params = { destinationType: "plain" };
+      } else params = {
+        destinationType: "plain"
+      };
       if (!params.filename) params.filename = "pivot";
       flexmonster.exportTo(type, params, (result) => {
         switch (type) {
@@ -115,7 +119,6 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
     });
   });
 
-
   /* This code adds functions to emit ready, reportcomplete, and exportcomplete events for the browser 
      when called. This approach allows us to handle the component's events in the browser's scope. */
   await page.exposeFunction('onReady', () => {
@@ -128,8 +131,30 @@ const directoryPath = "./storage/"; /* A path to the storage of exported files *
     eventEmitter.emit('exportcomplete')
   });
 
-  /*  Reading the file with the component and setting it as the browser page's contents */
+  /*  Reading font in base64 fromat and css file */
+  const woffFont = fs.readFileSync('node_modules/flexmonster/theme/assets/flexmonster-icons.woff', 'base64')
+  const cssStyle = fs.readFileSync('node_modules/flexmonster/flexmonster.min.css', 'utf-8'); // the css content goes here
+
+  /*  Reading flexmonster.full.js to be executed in browser context  */
+  await page.evaluate(fs.readFileSync('node_modules/flexmonster/flexmonster.full.js', 'utf-8'));
+  /*  Reading page content */
   await page.setContent(fs.readFileSync('index.html', 'utf8'));
+
+  /*  Adding css style tag with CSS */
+  await page.addStyleTag({
+    content: cssStyle
+  });
+  /*  Adding fonts to the page` */
+  await page.addStyleTag({
+    content: `
+    @font-face {
+      font-family: 'flexmonster-icons';
+       src: url(data:font/truetype;charset=utf-8;base64,${woffFont}) format('truetype');
+       font-weight: normal;
+       font-style: normal;
+    }
+   `
+  });
 
   /* This code runs in the page's scope, subscribing the browser window to the component's ready, 
      reportcomplete, and exportcomplete events */
