@@ -38,5 +38,7 @@ npm start
 ```
 When the export is complete, find the saved files in the `storage/` folder.
 
+**Note:** In this version of the project, Flexmonster is included from CDN. Switch to the [flexmonster-from-nodemodules](https://github.com/flexmonster/pivot-puppeteer/tree/flexmonster-from-nodemodules) branch if you want to include Flexmonster from npm.
+
 ## Usage
 For more details on usage, see [our documentation](https://www.flexmonster.com/doc/export-and-print/#!export-without-browser).
