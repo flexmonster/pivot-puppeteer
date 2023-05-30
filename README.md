@@ -18,7 +18,7 @@ To run the project, you will need Node.js and npm. [Get them here](https://docs.
 
 ## Installation
 
-1. Download the `.zip` archive with the sample project or clone it from GitHub with the following command:
+1. Download the `.zip` archive with the sample project or clone it from GitHub with the following commands:
 
 ```bash
 git clone -b flexmonster-from-nodemodules https://github.com/flexmonster/pivot-puppeteer pivot-puppeteer
