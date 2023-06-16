@@ -1,4 +1,4 @@
-# Exporting from Flexmonster Pivot Table & Charts on the server without using a browser
+# Exporting from Flexmonster Pivot Table & Charts to a server without using a browser
 [![Flexmonster Pivot Table & Charts](https://cdn.flexmonster.com/landing.png)](https://flexmonster.com)
 Website: www.flexmonster.com
 
@@ -6,26 +6,27 @@ Website: www.flexmonster.com
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository holds the source code for a sample of how to export from Flexmonster Pivot without using a browser. We achieve this by means of [Puppeteer](https://pptr.dev/):
+This repository contains a sample project that demonstrates how to export Flexmonster reports without using a browser. We achieve this using [Puppeteer](https://pptr.dev/).
+
+Table of contents:
 
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
-* [Usage](#usage)
+* [Related Flexmonster docs](#related-flexmonster-docs)
 
 ## Prerequisites
 
-To run the project, you will need Node.js and npm. [Get them here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if they're not already installed on your machine.
+- [Node.js](https://nodejs.org/en/)
 
 ## Installation
 
-1. Download the `.zip` archive with the sample project or clone it from GitHub with the following commands:
+1. Download a `.zip` archive with the sample project or clone it from GitHub with the following command:
 
 ```bash
-git clone -b flexmonster-from-nodemodules https://github.com/flexmonster/pivot-puppeteer pivot-puppeteer
-cd pivot-puppeteer
+git clone https://github.com/flexmonster/pivot-puppeteer && cd pivot-puppeteer
 ```
 
-2. Install the npm packages described in `package.json`: 
+2. Install the npm dependencies described in `package.json`: 
 
 ```bash
 npm install
@@ -40,5 +41,5 @@ When the export is complete, find the saved files in the `storage/` folder.
 
 **Note:** In this version of the project, Flexmonster is included from npm. Switch to the [master](https://github.com/flexmonster/pivot-puppeteer/tree/master) branch if you want to include Flexmonster from our CDN.
 
-## Usage
-For more details on usage, see [our documentation](https://www.flexmonster.com/doc/export-and-print/#!export-without-browser).
+## Related Flexmonster docs
+- [Export the report](https://www.flexmonster.com/doc/export-and-print/) — learn more about export in Flexmonster.
