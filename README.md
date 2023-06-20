@@ -42,4 +42,4 @@ When the export is complete, find the saved files in the `storage/` folder.
 **Note:** In this version of the project, Flexmonster is included from npm. Switch to the [master](https://github.com/flexmonster/pivot-puppeteer/tree/master) branch if you want to include Flexmonster from our CDN.
 
 ## Related Flexmonster docs
-- [Export the report](https://www.flexmonster.com/doc/export-and-print/) — learn more about export in Flexmonster.
+- [Export the report](https://www.flexmonster.com/doc/export-report/) — learn more about export in Flexmonster.
