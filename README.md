@@ -1,6 +1,6 @@
 # Exporting from Flexmonster Pivot Table & Charts to a server without using a browser
-[![Flexmonster Pivot Table & Charts](https://cdn.flexmonster.com/landing.png)](https://flexmonster.com)
-Website: [www.flexmonster.com](https://www.flexmonster.com)
+[![Flexmonster Pivot Table & Charts](https://cdn.flexmonster.com/landing.png)](https://www.flexmonster.com/?r=github)
+Website: [www.flexmonster.com](https://www.flexmonster.com/?r=github)
 
 ## Flexmonster Pivot Table & Charts
 
@@ -41,4 +41,4 @@ When the export is complete, find the saved files in the `storage/` folder.
 **Note:** In this version of the project, Flexmonster is included from CDN. Switch to the [flexmonster-from-nodemodules](https://github.com/flexmonster/pivot-puppeteer/tree/flexmonster-from-nodemodules) branch if you want to include Flexmonster from npm.
 
 ## Related Flexmonster docs
-- [Export the report](https://www.flexmonster.com/doc/export-report/) — learn more about export in Flexmonster.
+- [Export the report](https://www.flexmonster.com/doc/export-report/?r=github) — learn more about export in Flexmonster.
